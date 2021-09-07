@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ contador }}</p>
+    <!-- v-on e uma diretiva de interceptacao de eventos (click, mousemove, hover, etc)-->
+    <button v-on:click="somar">Somar 1</button>
+    <!-- @ significa a mesma coisa que v-on -->
+    <button @:click="somar">Somar 1</button>
+    <hr>
+    <input type="text" v-bind:value="contador">
+    <!-- :value significa a mesma coisa que v-bind:value -->
+    <input type="text" :value="contador">
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            somar() {
+                this.contador++;
+            }
+        }
+    })
+</script>

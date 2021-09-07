@@ -1,0 +1,65 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ contador }}</p>
+    <!-- v-on e uma diretiva de interceptacao de eventos (click, mousemove, hover, etc)-->
+    <!-- Passando o valor de 5 como parametro para o botao somar de 5 em 5 -->
+    <!-- Event e um paramentro padrao do Javascript que aparece no console para mostrar qual evento esta acontecendo -->
+    <!-- Se eu quiser passar o parametro event eu preciso colocar (, $event) dentro do metodo -->
+    <button v-on:click="somar(5, $event)">Somar 5</button>
+    <!-- v-on e uma diretiva de interceptacao de eventos (click, mousemove, hover, etc)-->
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{x}} e {{y}}
+        <!-- Caso eu queria parar a funcionalidade dentro de alguma tag especifica eu posso utilizar um (motificador de evento) .stop -->
+        <span v-on:mousemove.stop="">PARAR AQUI!!!</span>
+        <!-- Ou eu posso criar uma nova funcao que faça isso -->
+        <span v-on:mousemove="parar"> | PARAR AQUI!!!</span>
+    </p>
+
+    <!-- Outro exemplo de motificador de evento e o prevent que previque que a acao default nao aconteca -->
+    <a  v-on:click.prevent="" href="https://github.com/">GitHub</a>
+    <!-- Ou eu posso criar uma nova funcao que faça isso -->
+    <a  v-on:click="naoNavegar" href="https://github.com/">GitHub</a>
+
+    <!-- Exemplo de eventos de teclado | Sempre que digitar um caractere no input ele chama a funcao exibirAlerta -->
+    <input type="text" v-on:keyup="exibirAlerta">
+    <!-- Exemplo de um modificador de acesso -> reconheco qual a tecla tera que ser acionada para que eu chame a minha funcao -->
+    <!-- Tambem e possivel colocar duas teclas -> v-on:keyup.enter.alt -->
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            somar(passo, event) {
+                console.log(passo, event); // Comando para mostrar os eventos que estou gerando/utilizando por acao no console
+                this.contador += passo;
+            },
+            atualizarXY(event) {
+                // Utilizando o evento mousemove ele rastreia a posicao x y do mouse por isso a variavel clienteX e Y
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            parar(event) { //Funcao para parar um evento dentro de uma tag
+                event.stopPropagation();
+            },
+            naoNavegar(event) { //Funcao para evitar que um evento default aconteca
+                event.preventDefault();
+            },
+            exibirAlerta(event) { //Funcao para retornar um alerta
+                alert('Alerta');
+            }
+        }
+    })
+</script>

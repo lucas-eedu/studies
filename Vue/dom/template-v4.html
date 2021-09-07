@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ titulo }}</p>
+    <!-- Echo de uma funcao no HTML || Mostrando que e possivel criar novas binds --> 
+    <p c3r-bind="abc">{{ saudacao() }}</p>
+    <!-- Para adicionar um conteudo dentro de um propriedade HTML e necessario utilizar v-bind:nomedapropriedade -->
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'https://google.com.br'
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            saudacao: function() {
+                console.log(this)
+                return this.titulo
+            }
+        }
+    })
+</script>

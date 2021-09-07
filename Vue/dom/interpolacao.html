@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ 1 + 2 - 100 * 2 }}</p> <!--  So mostrando as possibilidades de interpolacao do Vue -->
+    <p>{{ contador }}</p> <!--  So mostrando as possibilidades de interpolacao do Vue -->
+    <p>{{ contador > 10 ? 'Maior do que 10' : 'Menor do que 10' }}</p> <!--  So mostrando as possibilidades de interpolacao do Vue -->
+    <!-- v-on e uma diretiva de interceptacao de eventos (click, mousemove, hover, etc)-->
+    <!-- Passando o valor de 5 como parametro para o botao somar de 5 em 5 -->
+    <!-- Event e um paramentro padrao do Javascript que aparece no console para mostrar qual evento esta acontecendo -->
+    <!-- Se eu quiser passar o parametro event eu preciso colocar (, $event) dentro do metodo -->
+    <button v-on:click="somar()">Somar 1</button>
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            contador: 0
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            somar() {
+                this.contador++;
+            }
+        }
+    })
+</script>

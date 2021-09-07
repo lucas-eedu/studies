@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ titulo }}</p>
+    <!-- Echo de uma funcao no HTML -->
+    <p>{{ saudacao() }}</p>
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            titulo: 'Usando VueJS!'
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            saudacao: function() {
+                return 'Boa Semana!'   
+            }
+        }
+    })
+</script>

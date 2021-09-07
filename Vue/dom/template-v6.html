@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML || O comando v-once server para informar ao vue que o que esta dentro da variavel so vai mudar uma vez -->
+    <p v-once>{{ titulo }}</p>
+    <!-- Echo de uma funcao no HTML || Mostrando que e possivel criar novas binds --> 
+    <p c3r-bind="abc">{{ saudacao() }}</p>
+    <!-- Para adicionar um conteudo dentro de um propriedade HTML e necessario utilizar v-bind:nomedapropriedade -->
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html="linkHtml"></p>
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'https://google.com.br',
+            linkHtml: '<a href="http://google.com">Google</a>'
+        },
+        // Metodos criados
+        methods: {
+            // Metodo / Funcao
+            saudacao: function() {
+                // Mudando a informacao dentro do dado titulo
+                this.titulo = 'Bom dia!'
+                return this.titulo
+            }
+        }
+    })
+</script>

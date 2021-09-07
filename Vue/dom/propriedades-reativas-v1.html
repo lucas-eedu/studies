@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Echo de um dado no HTML -->
+    <p>{{ titulo }}</p>
+    <!-- E possivel utilizar o v-bind e v-on ao mesmo tempo -> dessa forma eu consigo ligar a minha acao em dois campos do HTML -->
+    <input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value">
+    <!-- Porem, existe o v-model que faz a mesma coisa que o exemplo anterior economizando linhas de codigo! -->
+    <input type="text" v-model="titulo">
+</div>
+
+<script>
+    new Vue({
+        // ID da div no HTML
+        el: '#app',
+        // Dados a serem tratados (Variaveis)
+        data: {
+            titulo: 'Usando VueJS!'
+        }
+    })
+</script>
