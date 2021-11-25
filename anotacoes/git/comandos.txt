@@ -1,0 +1,100 @@
+# Verificando quais arquivos foram alterados/adicionados
+- git status
+
+# Realizando um commit
+- git commit -m "Mensagem do commit"
+
+# Vendo histórico de commits (https://devhints.io/git-log)
+- git log | Normal
+- git log --oneline | Curto
+- git log -p | Completo
+- git log --graph | Linhas de branch
+
+# Alterando configurações do git de um projeto
+- git config --local
+
+# Alterando configurações do git da máquina
+- git config --global
+
+# Enviando o commit
+- git push
+
+# Enviando o commit para uma branch
+- git push (nome_repositorio_remoto) (branch_repositorio)
+
+# Baixando dados de um repositório 
+- git pull
+
+# Baixando dados de uma branch
+- git pull (nome_repositorio_remoto) (branch_repositorio) 
+
+# Criando uma branch 
+- git branch nome_branch
+
+# Entrando em uma branch
+- git checkout nome_branch
+
+# Criando e entrando na branch
+- git checkout -b nome_branch
+
+# Excluindo uma branch - Sem commits
+- git branch -d nome_branch
+
+# Excluindo um branch - Com Commits (Cuidado)
+- git branch -D nome_branch
+
+# Fazendo merge (Cria um commit de merge)
+- git merge nome_branch
+
+# Puxa todos os commits da branch selecionada para a branch atual (master)
+- git rebase nome_branch
+
+# Descartando alterações do projeto antes de commitar
+- git checkout -- nome_do_arquivo
+
+# Descartando alterações depois de usar o git add .
+- git reset HEAD nome_do_arquivo
+
+# Desfazendo commit
+- git revert hash_do_commit
+
+# Salvando alterações em um local temporário
+- git stash (git stash list)
+- git stash pop -> voltando para as alterações
+
+# Acessando um commit antigo
+- git checkout hash_do_commit
+Se eu quiser fazer algum ajuste em um commit antigo o ideal é acessá-lo, criar uma branch a partir dele e depois realizar o merge
+
+# Mostrando alterações do código atual para o commit anterior
+- git diff
+
+# Mostrando alterações entre commits
+- git diff hash_do_commit...hash_do_commit
+
+# Gerando versão
+- git tag -a v0.1.0 -m "Lançando a primeira versão (BETA) da aplicação de cursos"
+Enviando tag para o github -> git push origin v0.1.0
+
+# Juntando commits em um único
+- git rebase -i HEAD~3 (HEAD = Trabalho atual | ~ = unir | 3 = 3 últimos commits)
+- git rebase -i hash_do_commit (Do commit anterior que eu quero juntar) (PICK | S)
+
+# Trazendo um commit de outra branch para a branch que estou trabalhando
+- git cherry-pick hash_do_commit
+
+# Para encontrar um commit que uma alteração foi implementada
+- git bisect (É meio complicado, se um dia precisa pesquise o passo a passo.)
+
+# Encontrando o responsável por cada uma das linhas de um arquivo
+- git blame nome_do_arquivo
+
+# Mostra todas as alterações aplicadas pelo commit com o hash informado.
+- git show hash_do_commit
+
+# Convenções
+-> Branch's de features = features/nome_da_feature
+-> Branch's de correção de bugs = hotfix/versao_do_projeto_que_vai_sair_a_correcao -> depois do merge cria uma tag pois a versão foi lançada ao commitar o hotfix para a master
+
+-> Antes de lançar uma nova versão do projeto para a produção é necessário criar uma branch de release para fazer testes e corrigir últimos bugs -> depois realizar o merge para a master
+-> Feito isso, criamos uma nova tag com o nome da versão
