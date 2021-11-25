@@ -4,14 +4,17 @@
 # Instalando o Express
 - npm install express --save
 
-# Instalando o body-parser
+# Instalando o Body-parser
 - npm install body-parser
 
-# sequelize
+# Instalando o Sequelize
 - npm install sequelize
 
-# mysql2
+# Instalando o Mysql2
 - npm install mysql2
 
-# Instalando biblioteca Config
+# Instalando a biblioteca Config
 - npm install config
+
+# Instalando o Nodemon
+- npm install nodemon -g (globalmente)
