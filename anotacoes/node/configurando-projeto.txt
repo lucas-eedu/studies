@@ -1,5 +1,5 @@
 # Iniciando o projeto (Criando o package.json)
-- npm init -y
+- npm init
 
 # Instalando o Express
 - npm install express --save
@@ -18,3 +18,6 @@
 
 # Instalando o Nodemon
 - npm install nodemon -g (globalmente)
+
+# Instalando o EJS
+- npm install ejs --save
