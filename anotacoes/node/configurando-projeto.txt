@@ -1,0 +1,17 @@
+# Iniciando o projeto (Criando o package.json)
+- npm init -y
+
+# Instalando o Express
+- npm install express --save
+
+# Instalando o body-parser
+- npm install body-parser
+
+# sequelize
+- npm install sequelize
+
+# mysql2
+- npm install mysql2
+
+# Instalando biblioteca Config
+- npm install config
