@@ -1,0 +1,45 @@
+@Controllers
+
+    # Criar controller
+    - php artisan make:controller {nomedocontroller}
+
+    # Criar controller resource (CRUD)
+    - php artisan make:controller {nomedocontroller} --resource
+
+@Models
+
+    # Criar Model
+    - php artisan make:model {nomedomodel}
+    
+    # Criar Model junto com a Migration
+    - php artisan make:model {nomedomodel} -m
+
+    # Criar Model junto com a Migration, Controller, Policy, Seeder, Factory
+    - php artisan make:model {nomedomodel} --all
+
+@Migrations
+
+    # Criar migration
+    - php artisan make:migration {nomedocontroller}
+
+    # Desfazer a migration atual e voltar para a migration anterior
+    - php artisan migration:rollback
+
+    # Alterando a tabela users adicionando a coluna master_user_id
+    - php artisan make:migration alter_users_table_add_user_master_id --table=users
+
+@Request
+
+    # Criar request
+    - php artisan make:request {nomedarequest}
+
+@Policy
+
+    # Criar policy
+    - php artisan make:policy {nomedapolicy} --model=User
+
+@Cache
+    
+    # Limpando cache
+    - php artisan cache:clear
+    - php artisan config:cache

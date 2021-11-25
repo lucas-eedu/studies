@@ -1,0 +1,46 @@
+# Instalando o Laravel
+- composer create-project laravel/laravel
+
+# Instalando o pacote Autentication Laravel Breeze
+- composer require laravel/breeze --dev
+- npm install && npm run dev
+- php artisan breeze:install
+- php artisan migrate
+
+# Criar link simbólico /public/storage apontando para storage/app/public
+- php artisan storage:link
+
+# Instalando o pacote DebugBar
+- https://github.com/barryvdh/laravel-debugbar
+- composer require barryvdh/laravel-debugbar --dev
+- composer update
+
+# Instalando o pacote flash
+- https://github.com/laracasts/flash
+- composer require laracasts/flash
+- Exemplo retorno flash no controller: https://github.com/lucas-eedu/artisan-crm/blob/master/app/Http/Controllers/ProductController.php
+- Exemplo retorno flash na view: https://github.com/lucas-eedu/artisan-crm/blob/master/resources/views/products/edit.blade.php
+
+# Instalando o pacote de tradução
+- https://github.com/lucascudo/laravel-pt-BR-localization
+- composer require lucascudo/laravel-pt-br-localization --dev
+- php artisan vendor:publish --tag=laravel-pt-br-localization
+- Altere Linha 83 do arquivo config/app.php para: 'locale' => 'pt-BR',
+- Altere Linha 70 do arquivo config/app.php para: 'timezone' => 'America/Sao_Paulo',
+
+# Instalando o pacote UUID
+- https://github.com/ramsey/uuid
+- composer require ramsey/uuid
+- Copiar o arquivo App/Traits/Uuid -> https://github.com/lucas-eedu/artisan-crm/blob/master/app/Traits/Uuid.php
+- Ajustar o model -> https://github.com/lucas-eedu/artisan-crm/blob/master/app/Models/Product.php
+- Seguir este exemplo ao criar a migration -> https://github.com/lucas-eedu/artisan-crm/blob/master/database/migrations/2021_11_22_182540_create_products_table.php 
+
+# Criando arquivo helpers.php
+- Localização: app/helpers.php
+- No composer.json
+   - "autoload": {
+         "files": [
+            "app/helpers.php"
+         ],
+- composer dump-autoload
+- composer install
